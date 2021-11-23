@@ -15,7 +15,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path='/'component={Dashboard} />
-            <Route path='/bins/:id' component={BinDetails} />
+            <Route path='/bin/:id' component={BinDetails} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/create' component ={CreateBin}/>
