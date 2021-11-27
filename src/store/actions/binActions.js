@@ -2,12 +2,12 @@ export const createBin = (bin) => {
     return (dispatch, getState, {getFirebase, getFirestore}) => {
 
         const firestore = getFirestore();
+        const binCreator = getState().firebase.auth.uid;
 
         firestore.collection('bins').add({
             ...bin,
-            CollectorFirstName: 'Fariha',
-            CollectorLastName: 'Atqiya',
-            lastPickedUp: new Date(),
+            binCreator: binCreator,
+            setUpAt: new Date(),
             needsToBePickedUp: false,
             location: 'somewhere'
         }).then(() => {

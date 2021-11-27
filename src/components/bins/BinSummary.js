@@ -1,14 +1,31 @@
 import React from 'react'
+import moment from 'moment'
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 const BinSummary = ({bin}) => {
+  const backgroundColour = bin.needsToBePickedUp ? '#ffdede' : '#e3ffe4';
+  const card = (
+    <React.Fragment>
+      <CardContent>
+        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          Trash Can Details
+        </Typography>
+        <Typography variant="h5" component="div">
+          Bin {bin.number}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+          {moment(bin.setUpAt.toDate().toString()).calendar()} 
+        </Typography>
+      </CardContent>
+    </React.Fragment>
+  );
+  
     return (
-        <div className="card z-depth-0 project-summary">
-        <div className="card-content grey-text text-darken-3">
-          <span className="card-title ">Bin {bin.number}</span>
-          <p>Posted by Fatima</p>
-          <p className="grey-text">3rd September, 2am</p>
-        </div>
-      </div>
+      <Card variant="outlined" style={{backgroundColor: backgroundColour}}>
+        {card}
+      </Card>
     )
 }
 

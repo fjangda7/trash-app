@@ -1,21 +1,19 @@
 import React, { Component } from 'react'
 import BinList from '../bins/BinList'
-import Updates from './Updates'
 import {connect} from 'react-redux'
 import {firestoreConnect} from 'react-redux-firebase'
 import {compose} from 'redux'
+import {Redirect} from 'react-router-dom'
 
 class Dashboard extends Component {
   render() {
-    const {bins} = this.props;
+    const {bins, auth} = this.props;
+    if (!auth.uid) return <Redirect to='/signin'/>
     return (
       <div className="dashboard container">
         <div className="row">
-          <div className="col s12 m6">
+          <div className="s12 m6">
             <BinList bins={bins} />
-          </div>
-          <div className="col s12 m5 offset-m1">
-            <Updates />
           </div>
         </div>
       </div>
@@ -26,7 +24,8 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   console.log(state);
     return {
-        bins: state.firestore.ordered.bins || state.bin.bins
+        bins: state.firestore.ordered.bins || state.bin.bins,
+        auth: state.firebase.auth
     }
 }
 
