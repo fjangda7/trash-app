@@ -22,7 +22,7 @@ const BinDetails = (props) => {
             <div>Set up on {moment(bin.setUpAt.toDate().toString()).format('MMMM Do YYYY, h:mm:ss a')}</div>
             <div>Location coordinates - {bin.location}</div>
             <br></br>
-            {bin.needsToBePickedUp ? pickedUp : null}
+            {(bin.needsToBePickedUp === 'true') ? pickedUp : null}
           </div>
         </div>
       </div>

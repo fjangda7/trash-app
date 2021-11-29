@@ -10,7 +10,7 @@ const Navbar = (props) => {
   return (
     <nav className="nav-wrapper grey darken-1">
       <div className="container">
-        <Link to='/' className="brand-logo">Trash Sensor Real-Time Updates</Link>
+        <Link to='/' className="brand-logo">Trash n Track</Link>
         {auth.isLoaded && links}
       </div>
     </nav>

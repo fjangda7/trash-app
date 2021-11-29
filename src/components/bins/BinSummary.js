@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 const BinSummary = ({bin}) => {
-  const backgroundColour = bin.needsToBePickedUp ? '#ffdede' : '#e3ffe4';
+  const backgroundColour = (bin.needsToBePickedUp === 'true') ? '#ffdede' : '#e3ffe4';
   const card = (
     <React.Fragment>
       <CardContent>
